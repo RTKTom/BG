@@ -79,6 +79,17 @@ h1 {
   margin: 24px auto 0;
 }
 
+.due-date {
+  display: inline-block;
+  margin: 22px auto 0;
+  padding: 10px 16px;
+  color: var(--pink-800);
+  background: var(--pink-75);
+  border: 1px solid var(--pink-300);
+  border-radius: 999px;
+  font-weight: 700;
+}
+
 .card {
   background: rgba(255,255,255,.78);
   backdrop-filter: blur(14px);
