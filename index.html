@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guess our baby girl's birthday!" />
+  <title>Guess Baby's Birthday</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <span class="eyebrow">A little family sweepstake</span>
+      <h1>When will our baby girl arrive?</h1>
+      <p>
+        Choose one available date in July, August or September.
+        Each guess costs <strong>£2</strong>.
+      </p>
+    </header>
+
+
+    <section class="scan-card card" aria-labelledby="scan-title">
+      <div class="scan-copy">
+        <span class="section-kicker">A little first look</span>
+        <h2 id="scan-title">Meet baby Isabella ♡</h2>
+        <p>Our favourite little scan photo while we wait to meet her.</p>
+      </div>
+
+      <figure class="scan-frame">
+        <img
+          src="baby-scan.jpg"
+          alt="Baby scan photo"
+          onerror="this.closest('.scan-frame').classList.add('missing-image'); this.style.display='none';"
+        />
+        <figcaption>Add your image as <strong>baby-scan.jpg</strong></figcaption>
+      </figure>
+    </section>
+
+    <section class="rules card" aria-labelledby="rules-title">
+      <h2 id="rules-title">How it works</h2>
+      <div class="rule-grid">
+        <p><span></span> One guess per person</p>
+        <p><span></span> One person per date</p>
+        <p><span></span> Correct date wins the pot</p>
+        <p><span></span> Empty date means baby Isabella wins</p>
+      </div>
+    </section>
+
+    <section class="entry card" aria-labelledby="entry-title">
+      <div>
+        <span class="section-kicker">Place your guess</span>
+        <h2 id="entry-title">Pick an available date</h2>
+      </div>
+
+      <form id="guess-form">
+        <label>
+          Your name
+          <input id="name" name="name" type="text" maxlength="40" autocomplete="name"
+                 placeholder="e.g. Auntie Sarah" required />
+        </label>
+
+        <label>
+          Your date
+          <input id="guess-date" name="guessDate" type="date" required />
+        </label>
+
+        <button id="submit-button" type="submit">Enter my guess — £2</button>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="pot-card card" aria-label="Current sweepstake pot">
+      <span class="section-kicker">Current prize pot</span>
+      <div class="pot-total" id="pot-total">£0</div>
+      <p><span id="guess-count">0</span> guesses at £2 each</p>
+    </section>
+
+    <section class="calendar-section" aria-labelledby="calendar-title">
+      <div class="calendar-heading">
+        <div>
+          <span class="section-kicker">The guesses so far</span>
+          <h2 id="calendar-title">Baby birthday calendar</h2>
+        </div>
+        <div class="legend" aria-label="Calendar legend">
+          <span><i class="available-dot"></i> Available</span>
+          <span><i class="taken-dot"></i> Taken</span>
+        </div>
+      </div>
+
+      <div id="loading" class="loading">Loading guesses…</div>
+      <div id="calendar" class="calendar-grid" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      <p>Made with love while we wait to meet her ♡</p>
+      <p class="small-print">Payments are arranged privately; this website does not collect money.</p>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
